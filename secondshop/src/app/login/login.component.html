@@ -1,0 +1,17 @@
+ <div>
+
+ <label for="userId">User Id:</label>
+ <input type="text" id="userId" placeholder="Nome Utente" [(ngModel)] = userId >
+
+ <label for="password">Password</label>
+ <input type="password" id="password" placeholder="Password" [(ngModel)]= password >
+
+ <button (click)= gestAuth()>Accedi</button>
+</div>
+<div *ngIf="!authenticate">
+    {{errMsg}}
+</div>
+ 
+<div *ngIf="consentito">
+{{okMsg}}
+</div>
