@@ -6,12 +6,12 @@
  <label for="password">Password</label>
  <input type="password" id="password" placeholder="Password" [(ngModel)]= password >
 
- <button (click)= gestAuth()>Accedi</button>
+ <button class="btn btn-primary" (click)= gestAuth()>Accedi</button>
 </div>
 <div *ngIf="!authenticate">
     {{errMsg}}
 </div>
  
-<div *ngIf="consentito">
+<!-- <div *ngIf="consentito">
 {{okMsg}}
-</div>
+</div> -->

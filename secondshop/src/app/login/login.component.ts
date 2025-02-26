@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,11 @@ userId: string = "Edysse"
 password: string = ""
 
 authenticate: boolean = true;
-consentito: boolean = false
+// consentito: boolean = false
 errMsg: string = "Nome utente o password errati. Riprovare!"
-okMsg: string = "Credenziali corrette"
+// okMsg: string = "Credenziali corrette"
 
-  constructor () {}
+  constructor (private route: Router) {}
   ngOnInit(): void {
     
   }
@@ -23,13 +24,14 @@ okMsg: string = "Credenziali corrette"
   gestAuth = ( ) : void => {
     console.log(this.userId)
     if(this.userId === "Edysse" && this.password === "123_Stella") {
+      this.route.navigate(['welcome', this.userId])
         this.authenticate = true
-        this.consentito = true
+        // this.consentito = true
 
     } else {
       
       this.authenticate = false
-      this.consentito = false
+      // this.consentito = false
     }
   }
 }
