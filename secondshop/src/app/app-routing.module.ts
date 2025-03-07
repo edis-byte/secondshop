@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ErrorComponent } from './error/error.component';
 import { AtricoliComponent } from './atricoli/atricoli.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGaurd } from '../services/route-guard.service';
 
 const routes: Routes = [
   {
@@ -13,10 +15,16 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'welcome/:userid', component: WelcomeComponent
+    path: 'welcome', component: WelcomeComponent, canActivate:[AuthGaurd],
+  },
+  {
+    path: 'welcome/:userid', component: WelcomeComponent, canActivate:[AuthGaurd],
   },
    {
-    path: 'articoli', component: AtricoliComponent
+    path: 'articoli', component: AtricoliComponent,  canActivate:[AuthGaurd],
+   },
+    {
+      path: 'logout', component: LogoutComponent
 
    },
   {
@@ -25,7 +33,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
