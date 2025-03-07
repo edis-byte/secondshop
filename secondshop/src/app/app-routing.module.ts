@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ErrorComponent } from './error/error.component';
-import { AtricoliComponent } from './atricoli/atricoli.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AuthGaurd } from '../services/route-guard.service';
+import { LoginComponent } from './modules/login/pages/login/login.component';
+import { WelcomeComponent } from './modules/welcome/welcome.component';
+import { ErrorComponent } from './modules/error/pages/error/error.component';
+import { ArticoliComponent } from './modules/atricoli/pages/articoli/articoli.component';
+import { LogoutComponent } from './modules/logout/pages/logout/logout.component';
+import { AuthGaurd } from './core/services/route-guard.service';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
     path: 'welcome/:userid', component: WelcomeComponent, canActivate:[AuthGaurd],
   },
    {
-    path: 'articoli', component: AtricoliComponent,  canActivate:[AuthGaurd],
+    path: 'articoli', component: ArticoliComponent,  canActivate:[AuthGaurd],
    },
     {
       path: 'logout', component: LogoutComponent

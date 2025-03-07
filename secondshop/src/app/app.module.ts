@@ -1,31 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { ErrorComponent } from './error/error.component';
-import { AtricoliComponent } from './atricoli/atricoli.component';
 import { CoreModule } from './core/core.module';
-import { LogoutComponent } from './logout/logout.component';
+import { ArticoliModule } from './modules/atricoli/articoli.module';
+import { ErrorModule } from './modules/error/error.module';
+import { LoginModule } from './modules/login/login.module';
+import { LogoutModule } from './modules/logout/logout.module';
+import { WelcomeModule } from './modules/welcome/welcome.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    LoginComponent,
-    ErrorComponent,
-    AtricoliComponent,
-    LogoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CoreModule
-
+    CoreModule,
+    ArticoliModule,
+    ErrorModule,
+    LoginModule,
+    LogoutModule,
+    WelcomeModule
   ],
   providers: [
     provideClientHydration()

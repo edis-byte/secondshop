@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { IArticoli } from '../models/articoli';
+import { IArticoli } from '../../../../shared/models/articoli';
 
 @Component({
-  selector: 'app-atricoli',
-  templateUrl: './atricoli.component.html',
-  styleUrl: './atricoli.component.scss'
+  selector: 'app-articoli',
+  templateUrl: './articoli.component.html',
+  styleUrls: ['./articoli.component.scss']
 })
-export class AtricoliComponent implements OnInit {
+export class ArticoliComponent implements OnInit {
+
 
   articoli: IArticoli[] = [
     {codart : '0156132', descrizione: 'Barilla farina 1 kg', um: 'PZ', pzcart: 24, peso: 1, prezzo: 1.09, active: true, data: new Date() },
