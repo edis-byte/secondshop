@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ArticoliService } from '../../../../core/services/articoli.service';
 import { IArticoli } from '../../../../shared/models/articoli';
 
@@ -8,6 +8,8 @@ import { IArticoli } from '../../../../shared/models/articoli';
   styleUrl: './grid-articoli.component.scss'
 })
 export class GridArticoliComponent implements OnInit {
+
+   @ViewChild('GridView') child : any;
 
     articoli$: IArticoli[] = []
 
@@ -20,11 +22,14 @@ export class GridArticoliComponent implements OnInit {
   }
   handleEdit = (articolo: IArticoli) => {
     console.log("Modifica del codice" + articolo.codart)
+    this.child.getValue()
   }
   handleDelete = (articolo: IArticoli) => {
     console.log("Elimina del codice" + articolo.codart)
     this.articoli$.splice(this.articoli$.findIndex(x => x.codart === articolo.codart), 1)
     console.log(this.articoli$)
   }
-
+  receivedValue = (QtaArt: number) => {
+    console.log(QtaArt)
+  }
 }

@@ -28,7 +28,13 @@ articolo: IArticoli = {
 delete = new EventEmitter<IArticoli>()
 @Output()
 edit = new EventEmitter<IArticoli>()
+@Output()
+sendValue = new EventEmitter<number>() 
 
-editArt = () =>  this.edit.emit(this.articolo);
+qtaArt: number = 0
+
+  editArt = () =>  this.edit.emit(this.articolo);
   delArt = () => this.delete.emit(this.articolo);
+  getValue = () => this.sendValue.emit(this.qtaArt)
+
 }

@@ -4,6 +4,8 @@ import { ArticoliComponent } from '../atricoli/pages/articoli/articoli.component
 import { CoreModule } from '../../core/core.module';
 import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.component';
 import { ArticoliCardComponent } from './components/articoli-card/articoli-card.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -12,12 +14,15 @@ import { ArticoliCardComponent } from './components/articoli-card/articoli-card.
   declarations: [
     ArticoliComponent,
     GridArticoliComponent,
-    ArticoliCardComponent,   
+    ArticoliCardComponent, 
+      
   ],
   
   imports: [
     CommonModule,
-    CoreModule
+    CoreModule,
+    FormsModule,
+    SharedModule
   ],
   providers: [CurrencyPipe]
 })

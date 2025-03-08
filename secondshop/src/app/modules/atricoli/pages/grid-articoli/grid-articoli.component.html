@@ -33,10 +33,16 @@
 
         <div class="card-body">
             <div class="row gx-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5" *ngIf="articoli$ ">
-                <app-articoli-card *ngFor="let articolo of articoli$" [articolo-card]="articolo"
+                <app-articoli-card
+                #GridView
+                *ngFor="let articolo of articoli$" 
+                [articolo-card]="articolo"
                  (elimina-card)="handleDelete($event)"
                   (edit)="handleEdit($event)"
-                ></app-articoli-card>
+                  (sendValue)="receivedValue($event)">
+                  <span class="badge rounded-pill text-bg-danger stato promo" *ngIf="articolo.active">Promo</span>
+                  <span class="badge rounded-pill text-bg-danger stato promo" *ngIf="!articolo.active">Normale</span>
+                </app-articoli-card>
             </div>
         </div>
     </div>

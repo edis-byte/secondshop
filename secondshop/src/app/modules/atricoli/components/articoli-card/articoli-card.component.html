@@ -4,10 +4,15 @@
     <a href="#" class="img-wrap"> <img src="{{articolo.imageUrl}}" class="img-rounted" width="250" height="250" alt=""></a>
     <div class="info-wrap">
         <a href="#" class="title text-truncate">{{articolo.descrizione}}</a>
-        <div class="price mb-2">{{articolo.prezzo | currency: 'EUR'}}</div>
+        <div class="price mb-2">
+            {{articolo.prezzo | currency: 'EUR'}} x
+            <input type="text" class="qta mb-2" id="qta" [(ngModel)] = "qtaArt">
+            <ng-content select=".promo"></ng-content>
+            <p appColorChange [backColor]="'Yellow'" [textColor]="'Blue'">Promo valida fino al 12/12/2025</p>
+        </div>
 
         <button  class="btn btn-sm btn-light" (click)="editArt()">
-            <i class="material-icons md-edit"></i>Modifica
+            <i class="material-icons md-edit"></i>Acquista
         </button>
         <button class="btn btn-sm btn-outline-danger" (click)="delArt()">
             <i class="material-icons md-delete_forever"></i>Elimina
