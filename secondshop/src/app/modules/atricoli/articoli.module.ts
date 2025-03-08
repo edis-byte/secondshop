@@ -3,6 +3,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { ArticoliComponent } from '../atricoli/pages/articoli/articoli.component';
 import { CoreModule } from '../../core/core.module';
 import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.component';
+import { ArticoliCardComponent } from './components/articoli-card/articoli-card.component';
 
 
 
@@ -10,7 +11,8 @@ import { GridArticoliComponent } from './pages/grid-articoli/grid-articoli.compo
 @NgModule({
   declarations: [
     ArticoliComponent,
-    GridArticoliComponent
+    GridArticoliComponent,
+    ArticoliCardComponent,   
   ],
   
   imports: [
