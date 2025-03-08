@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IArticoli } from '../../../../shared/models/articoli';
 
 @Component({
@@ -6,12 +6,12 @@ import { IArticoli } from '../../../../shared/models/articoli';
   templateUrl: './articoli-card.component.html',
   styleUrl: './articoli-card.component.scss'
 })
-export class ArticoliCardComponent implements OnInit {
+export class ArticoliCardComponent  {
 
   constructor() {}
 
 
-@Input()
+@Input('articolo-card')
 articolo: IArticoli = {
   codart: '',
   descrizione: '',
@@ -22,9 +22,13 @@ articolo: IArticoli = {
   active: true,
   data: new Date(),
   imageUrl: ''
-}
+};
 
-ngOnInit(): void {
-  
-}
+@Output('elimina-card')
+delete = new EventEmitter<IArticoli>()
+@Output()
+edit = new EventEmitter<IArticoli>()
+
+editArt = () =>  this.edit.emit(this.articolo);
+  delArt = () => this.delete.emit(this.articolo);
 }

@@ -18,5 +18,13 @@ export class GridArticoliComponent implements OnInit {
     this.articoli$ = this.articoliService.getArticoli();
     console.log(this.articoli$)
   }
+  handleEdit = (articolo: IArticoli) => {
+    console.log("Modifica del codice" + articolo.codart)
+  }
+  handleDelete = (articolo: IArticoli) => {
+    console.log("Elimina del codice" + articolo.codart)
+    this.articoli$.splice(this.articoli$.findIndex(x => x.codart === articolo.codart), 1)
+    console.log(this.articoli$)
+  }
 
 }
